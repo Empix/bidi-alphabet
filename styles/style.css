@@ -58,11 +58,23 @@ canvas {
   padding: 10px;
 }
 
+/* Full Text */
 #full-text {
   margin-top: 20px;
   border: 3px solid #eee;
   height: 128px;
   width: 544px;
+  padding: 10px;
+  overflow-y: hidden;
+  overflow-x: scroll;
+}
+
+#full-text img {
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  image-rendering: pixelated;
 }
 
 /* Phrase Input */
@@ -98,8 +110,8 @@ canvas {
   }
 
   #full-text {
-    height: 128px;
     width: 352px;
+    height: 128px;
   }
 
   .phrase-input {

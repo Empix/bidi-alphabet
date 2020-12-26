@@ -88,8 +88,10 @@ async function draw() {
   drawFullText();
 }
 
-const fullText = document.querySelector('#full-text');
+const preview = document.querySelector('#full-text img');
+const fullText = document.createElement('canvas');
 const fullTextContext = fullText.getContext('2d');
+let previewImagesToLoad = 0;
 
 fullText.width = 17 * 4;
 fullText.height = 16;
@@ -97,6 +99,7 @@ fullTextContext.imageSmoothingEnabled = false;
 
 function drawFullText() {
   fullText.width = 17 * sets.length;
+  previewImagesToLoad = sets.length;
 
   fullTextContext.clearRect(0, 0, fullText.width, fullText.height);
 
@@ -106,6 +109,18 @@ function drawFullText() {
     image.dataset.index = index;
     image.onload = function () {
       fullTextContext.drawImage(this, this.dataset.index * 17, 0);
+
+      previewImagesToLoad--;
+      if (previewImagesToLoad == 0) {
+        updatePreview();
+      }
     };
   });
+}
+
+function updatePreview() {
+  const boxPreview = preview.parentElement;
+  boxPreview.scrollLeft = boxPreview.scrollWidth;
+
+  preview.src = fullText.toDataURL();
 }
