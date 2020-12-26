@@ -57,7 +57,7 @@ input.addEventListener('input', () => {
   draw();
 });
 
-const sets = [];
+let sets = [];
 
 async function draw() {
   const value = input.value.toUpperCase().split(' ');
@@ -66,6 +66,7 @@ async function draw() {
     .then((result) => {
       image.src = result;
       sets[value.length - 1] = result;
+      sets = sets.slice(0, value.length);
       input.classList.remove('wrong');
     })
     .catch((err) => {
@@ -73,7 +74,6 @@ async function draw() {
       input.classList.add('wrong');
     });
 
-  scheduledAnimationFrame = false;
   drawFullText();
 }
 
