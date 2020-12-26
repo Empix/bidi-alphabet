@@ -39,7 +39,7 @@ function createSetOfLetters(syllable) {
     });
 
     const allowedLetters = {
-      vowels: ['A', 'E', 'I', 'O', 'U'],
+      vowels: ['Á', 'Â', 'É', 'Ê', 'I', 'Ó', 'Ô', 'U'],
       consonants: [
         'B',
         'C',

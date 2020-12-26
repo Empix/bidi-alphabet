@@ -15,10 +15,14 @@ image.onload = () => {
 
 const allowedCharacter = [
   'A',
+  'Á',
+  'Â',
   'B',
   'C',
   'D',
   'E',
+  'É',
+  'Ê',
   'F',
   'G',
   'H',
@@ -29,6 +33,8 @@ const allowedCharacter = [
   'M',
   'N',
   'O',
+  'Ó',
+  'Ô',
   'P',
   'Q',
   'R',
@@ -60,7 +66,11 @@ input.addEventListener('input', () => {
 let sets = [];
 
 async function draw() {
-  const value = input.value.toUpperCase().split(' ');
+  let value = input.value.toUpperCase();
+  value = value.replaceAll('A', 'Á');
+  value = value.replaceAll('E', 'É');
+  value = value.replaceAll('O', 'Ó');
+  value = value.split(' ');
 
   await createSetOfLetters(value[value.length - 1])
     .then((result) => {
