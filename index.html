@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>BIDI</title>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="./styles/style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="phrase-input">
+        <input type="text" placeholder="Insira sua frase separada em silabas" />
+      </div>
+
+      <canvas id="preview"></canvas>
+      <div class="export">
+        <a id="download-set" class="button" download="conjunto.png">
+          DOWNLOAD
+        </a>
+
+        <div class="config">
+          <input
+            type="color"
+            id="background"
+            title="Cor fundo"
+            value="#000000"
+          />
+          <input
+            type="checkbox"
+            id="useBackground"
+            title="Fundo transparênte"
+          />
+        </div>
+      </div>
+
+      <canvas id="full-text"></canvas>
+
+      <div class="export">
+        <a id="download-phrase" class="button">DOWNLOAD</a>
+      </div>
+    </div>
+
+    <script src="./scripts/createSetOfLetters.js"></script>
+    <script src="./scripts/script.js"></script>
+  </body>
+</html>
