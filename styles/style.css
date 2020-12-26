@@ -89,43 +89,6 @@ canvas {
   color: #eee;
 }
 
-/* Export */
-.export {
-  width: 100%;
-  max-width: 544px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.config {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #eee;
-  padding: 0 10px;
-}
-
-.config input[type='color'] {
-  border: none;
-  padding: 0;
-  background-color: #eee;
-  height: 35px;
-}
-
-.config input[type='color']::-webkit-color-swatch {
-  border: 2px solid #212121;
-}
-
-.config input {
-  cursor: pointer;
-  margin-right: 10px;
-}
-
-.config input:last-child {
-  margin-right: 0;
-}
-
 /* Responsive */
 
 @media (max-width: 542px) {
@@ -139,8 +102,7 @@ canvas {
     width: 352px;
   }
 
-  .phrase-input,
-  .export {
+  .phrase-input {
     max-width: 352px;
   }
 }
@@ -156,8 +118,7 @@ canvas {
     height: 128px;
   }
 
-  .phrase-input,
-  .export {
+  .phrase-input {
     max-width: 297px;
   }
 }

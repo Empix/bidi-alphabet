@@ -31,8 +31,6 @@ function createSetOfLetters(syllable) {
         if (imagesToLoad == 0) {
           resolve(canvas.toDataURL());
         }
-
-        this.remove();
       };
 
       image.onerror = () => {
