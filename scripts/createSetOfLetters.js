@@ -95,7 +95,7 @@ function createSetOfLetters(syllable) {
         if (sequence[i].includes(phonemeType)) {
           images[
             currentImagePosition
-          ].src = `./../assets/letters/${sequence[i]}/${letter}.png`;
+          ].src = `../assets/letters/${sequence[i]}/${letter}.png`;
 
           currentSequencePosition = i + 1;
           currentImagePosition++;
@@ -107,11 +107,11 @@ function createSetOfLetters(syllable) {
     if (!hasConsonant) {
       images[
         images.length - 1
-      ].src = `./../assets/letters/consonants/first/NULL.png`;
+      ].src = `../assets/letters/consonants/first/NULL.png`;
     } else {
       images[
         images.length - 1
-      ].src = `./../assets/letters/consonants/first/empty.png`;
+      ].src = `../assets/letters/consonants/first/empty.png`;
     }
   });
 }
