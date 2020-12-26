@@ -5,6 +5,7 @@ function createSetOfLetters(syllable) {
 
     canvas.width = 17;
     canvas.height = 16;
+    ctx.imageSmoothingEnabled = false;
 
     if (!syllable) {
       resolve(canvas.toDataURL());

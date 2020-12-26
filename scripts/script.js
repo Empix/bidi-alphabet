@@ -5,6 +5,7 @@ const ctx = canvas.getContext('2d');
 
 canvas.width = 17;
 canvas.height = 16;
+ctx.imageSmoothingEnabled = false;
 
 const image = new Image();
 image.onload = () => {
@@ -92,6 +93,7 @@ const fullTextContext = fullText.getContext('2d');
 
 fullText.width = 17 * 4;
 fullText.height = 16;
+fullTextContext.imageSmoothingEnabled = false;
 
 function drawFullText() {
   fullText.width = 17 * sets.length;
