@@ -17,31 +17,56 @@ image.onload = () => {
 const allowedCharacter = [
   'A',
   'Á',
+  'À',
   'Â',
+  'Ã',
+  'Ä',
+
   'B',
   'C',
   'D',
+
   'E',
   'É',
+  'È',
   'Ê',
+  'Ë',
+
   'F',
   'G',
   'H',
+
   'I',
+  'Í',
+  'Ì',
+  'Î',
+  'Ï',
+
   'J',
   'K',
   'L',
   'M',
   'N',
+
   'O',
   'Ó',
+  'Ò',
   'Ô',
+  'Õ',
+  'Ö',
+
   'P',
   'Q',
   'R',
   'S',
   'T',
+
   'U',
+  'Ú',
+  'Ù',
+  'Û',
+  'Ü',
+
   'V',
   'W',
   'X',
@@ -69,8 +94,29 @@ let sets = [];
 async function draw() {
   let value = input.value.toUpperCase();
   value = value.replaceAll('A', 'Á');
+  value = value.replaceAll('À', 'Á');
+  value = value.replaceAll('Ã', 'Â');
+  value = value.replaceAll('Ä', 'Â');
+
   value = value.replaceAll('E', 'É');
+  value = value.replaceAll('È', 'É');
+  value = value.replaceAll('Ë', 'Ê');
+
+  value = value.replaceAll('Í', 'I');
+  value = value.replaceAll('Ì', 'I');
+  value = value.replaceAll('Î', 'I');
+  value = value.replaceAll('Ï', 'I');
+
   value = value.replaceAll('O', 'Ó');
+  value = value.replaceAll('Ò', 'Ó');
+  value = value.replaceAll('Õ', 'Ô');
+  value = value.replaceAll('Ö', 'Ô');
+
+  value = value.replaceAll('Ú', 'U');
+  value = value.replaceAll('Ù', 'U');
+  value = value.replaceAll('Û', 'U');
+  value = value.replaceAll('Ü', 'U');
+
   value = value.split(' ');
 
   await createSetOfLetters(value[value.length - 1])
