@@ -28,8 +28,62 @@
       <div id="full-text">
         <img />
       </div>
+      <div class="actions">
+        <button class="button" onclick="startExport('fullText')">
+          EXPORTAR
+        </button>
+      </div>
     </div>
 
+    <div class="popup">
+      <div class="export">
+        <strong>Preview:</strong>
+        <div class="preview">
+          <img />
+        </div>
+
+        <span class="info" id="originalSize">
+          <strong>Tamanho original: </strong> <span>16x16</span>
+        </span>
+        <span class="info" id="scaledSize">
+          <strong>Tamanho final: </strong> <span>16x16</span>
+        </span>
+
+        <div class="input-scale">
+          <label for="scale">Escala: </label>
+          <input type="range" max="32" min="1" id="scale" value="1" />
+          <span>1x</span>
+        </div>
+
+        <div class="actions">
+          <button
+            id="export-btn"
+            class="button"
+            title="Fazer download"
+            onclick="exportImage('download')"
+          >
+            DOWNLOAD
+          </button>
+          <button
+            id="copy-btn"
+            class="button"
+            title="Copiar para área de transferência"
+            onclick="exportImage('copy')"
+          >
+            COPIAR
+          </button>
+          <button class="button" onclick="hidePopup()" title="Fechar popup">
+            FECHAR
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="info-popup">
+      <p>Download iniciado!</p>
+    </div>
+
+    <script src="./scripts/export.js"></script>
     <script src="./scripts/createSetOfLetters.js"></script>
     <script src="./scripts/script.js"></script>
   </body>

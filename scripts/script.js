@@ -1,3 +1,11 @@
+/*
+
+
+ALTO NIVEL DE GAMBIARRA
+
+
+*/
+
 const input = document.querySelector('.phrase-input input');
 
 const canvas = document.querySelector('#preview');
