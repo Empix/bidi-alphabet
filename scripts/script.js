@@ -1,8 +1,6 @@
 /*
 
-
 ALTO NIVEL DE GAMBIARRA
-
 
 */
 
