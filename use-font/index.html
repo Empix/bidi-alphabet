@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <title>BIDI Font</title>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <p id="info"></p>
+      <input type="text" id="phrase" placeholder="Frase separada em sílabas" />
+      <input
+        type="text"
+        id="bidi-phrase"
+        placeholder="Frase em bidi"
+        disabled
+      />
+      <p id="bidi-result"></p>
+      <button id="change-font">Usar fonte Hi-res <span>exêmŒô</span></button>
+    </div>
+
+    <script src="./data.js"></script>
+    <script src="./script.js"></script>
+  </body>
+</html>

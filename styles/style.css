@@ -216,6 +216,13 @@ canvas {
   color: #eee;
 }
 
+/* Use Font */
+.links {
+  margin-bottom: 20px;
+  display: flex;
+  width: 544px;
+}
+
 /* Responsive */
 
 @media (max-width: 542px) {
@@ -230,7 +237,8 @@ canvas {
   }
 
   .phrase-input,
-  .container .actions {
+  .container .actions,
+  .links {
     max-width: 352px;
   }
 
@@ -265,7 +273,8 @@ canvas {
   }
 
   .phrase-input,
-  .container .actions {
+  .container .actions,
+  .links {
     max-width: 297px;
   }
 }
