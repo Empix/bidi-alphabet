@@ -39,7 +39,7 @@ body {
   gap: 10px;
 }
 
-input,
+textarea,
 p,
 button {
   font-size: 2em;
@@ -48,6 +48,7 @@ button {
   padding: 10px 20px;
   width: 90%;
   font-family: Arial, Helvetica, sans-serif;
+  resize: vertical;
 }
 
 #change-font {
@@ -76,8 +77,9 @@ button {
 #bidi-phrase {
   background-color: #fff;
   color: #000;
-  overflow-x: scroll;
-  white-space: nowrap;
+  height: 125px;
+  word-break: break-all;
+  overflow-y: scroll;
 }
 
 #bidi-phrase:empty::before {
