@@ -26,6 +26,7 @@ const consonants = [
   'x_',
   'y_',
   'z_',
+  'ç_',
 ]; // consoantes para adicionar
 
 consonants.forEach((set) => {
@@ -70,6 +71,9 @@ phrase.addEventListener('input', function () {
 
   this.value
     .toLowerCase()
+    .replace('a', 'á')
+    .replace('e', 'ê')
+    .replace('o', 'ô')
     .split(' ')
     .forEach((syllable) => {
       if (syllable === '') {
