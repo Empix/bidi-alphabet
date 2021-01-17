@@ -2,6 +2,8 @@ const toAdd = ['á_', 'â_', 'é_', 'ê_', 'i_', 'ó_', 'ô_', 'u_']; // vogais 
 const bidi = ['a', 'a', 'e', 'e', 'i', 'o', 'o', 'u']; // correspondencia em bidi (repete por conta da posição)
 const vowels = ['á', 'â', 'é', 'ê', 'í', 'ó', 'ô', 'ú']; // i, u com acento
 const vowels2 = ['á', 'â', 'é', 'ê', 'i', 'ó', 'ô', 'u']; // i, u sem acento
+const AllVowels = ['á', 'â', 'é', 'ê', 'i', 'í', 'ó', 'ô', 'u', 'ú'];
+const AllVowelsBidi = ['á', 'â', 'é', 'ê', 'í', 'í', 'ó', 'ô', 'ú', 'ú'];
 const consonants = [
   'b_',
   'c_',
@@ -27,11 +29,10 @@ const consonants = [
 ]; // consoantes para adicionar
 
 consonants.forEach((set) => {
-  vowels.forEach((vowel, indexVowel) => {
-    data[set.replace('_', vowels2[indexVowel])] = `${set.replace(
-      '_',
-      ''
-    )}${vowel}`;
+  AllVowels.forEach((vowel, indexVowel) => {
+    data[set.replace('_', vowel)] = `${set.replace('_', '')}${
+      AllVowelsBidi[indexVowel]
+    }`;
   });
 }); // Adiciona as consoantes com as vogais
 
@@ -40,8 +41,10 @@ consonants.forEach((set) => {
 }); // Adicionar as consoantes sozinhas
 
 toAdd.forEach((set, index) => {
-  vowels.forEach((vowel, indexVowel) => {
-    data[set.replace('_', vowels2[indexVowel])] = `${bidi[index]}${vowel}`;
+  AllVowels.forEach((vowel, indexVowel) => {
+    data[
+      set.replace('_', vowel)
+    ] = `${bidi[index]}${AllVowelsBidi[indexVowel]}`;
   });
 }); // Adiciona as vogais com as vogais
 
