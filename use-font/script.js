@@ -69,23 +69,25 @@ phrase.addEventListener('input', function () {
     .toLowerCase()
     .split(' ')
     .forEach((syllable) => {
+      if (syllable === '') {
+        info.innerHTML = '';
+        return;
+      }
+
       if (data[syllable]) {
         result += data[syllable];
         info.innerHTML = '';
       } else {
-        if (syllable === '') {
-          info.innerHTML = '';
-          return;
-        }
-
+        result += '<span class="wrong">?</span>';
         info.innerHTML = `Não encontrei uma correspondência em BIDI para "<span>${syllable}</span>"`;
       }
     });
 
-  bidiPhrase.value = result;
-  bidiResult.innerText = result;
+  bidiPhrase.innerHTML = result;
+  bidiResult.innerHTML = result;
 
   bidiPhrase.scrollLeft = bidiPhrase.scrollWidth;
+  bidiResult.scrollTop = bidiResult.scrollHeight;
 });
 
 document.querySelector('#change-font').addEventListener('click', function () {

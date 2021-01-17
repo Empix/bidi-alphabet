@@ -47,6 +47,7 @@ button {
   border-radius: 10px;
   padding: 10px 20px;
   width: 90%;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 #change-font {
@@ -62,7 +63,7 @@ button {
 }
 
 #bidi-result {
-  word-wrap: break-word;
+  word-break: break-all;
   font-size: 3em;
   color: #fff;
   font-family: 'BIDI';
@@ -72,9 +73,21 @@ button {
   border: 2px solid #fff;
 }
 
-#bidi-phrase:disabled {
+#bidi-phrase {
   background-color: #fff;
   color: #000;
+  overflow-x: scroll;
+  white-space: nowrap;
+}
+
+#bidi-phrase:empty::before {
+  content: attr(data-placeholder);
+  color: rgba(0, 0, 0, 0.55);
+  font-weight: 500;
+}
+
+.wrong {
+  color: #e40000;
 }
 
 #info {
