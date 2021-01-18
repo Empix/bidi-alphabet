@@ -182,53 +182,21 @@ function updatePreview() {
 }
 
 // ---------------- secreto hehe
-var _0xea56 = [
-  '0123456789',
-  '.links',
-  '40MqLDvU',
-  '44819rmZnwb',
-  '1969451puBQlR',
-  '1czVCyt',
-  '<span\x20class=\x22secreto\x22>Eu\x20sou\x20quem\x20vocês\x20sabem\x20que\x20eu\x20sou.\x2021/01/21</span>',
-  '3CsrPob',
-  '239jggQPw',
-  'bfM',
-  '.links\x20.secreto',
-  '948791xcoCHa',
-  '561518DqCEQr',
-  '3fQMsLO',
-  '1etozAm',
-  '529847bwNATb',
-  '4395eDNzVP',
-  '1073050aGBofF',
+var _0x115b = [
+  '\x2E\x6C\x69\x6E\x6B\x73\x20\x2E\x73\x65\x63\x72\x65\x74\x6F',
+  '\x71\x75\x65\x72\x79\x53\x65\x6C\x65\x63\x74\x6F\x72',
+  '\x30\x31\x32\x33\x34\x35\x36\x37\x38\x39',
+  '\x62\x66\x4E\x4D',
+  '\x69\x6E\x6E\x65\x72\x48\x54\x4D\x4C',
+  '\x2E\x6C\x69\x6E\x6B\x73',
+  '\x3C\x73\x70\x61\x6E\x20\x63\x6C\x61\x73\x73\x3D\x22\x73\x65\x63\x72\x65\x74\x6F\x22\x3E\x4D\x61\x6E\x64\x65\x20\x70\x61\x72\x61\x20\x6F\x20\x46\xE1\x62\x69\x6F\x20\x65\x73\x74\x65\x20\x63\xF3\x64\x69\x67\x6F\x3A\x20\x36\x31\x32\x39\x31\x35\x32\x31\x31\x39\x32\x30\x31\x35\x31\x39\x31\x33\x31\x31\x38\x33\x31\x35\x31\x39\x3C\x2F\x73\x70\x61\x6E\x3E',
 ];
-var _0x1d38 = function (_0x51276f, _0x31f456) {
-  _0x51276f = _0x51276f - 0x12b;
-  var _0xea5672 = _0xea56[_0x51276f];
-  return _0xea5672;
-};
-(function (_0x5f20cb, _0x2f2b6c) {
-  var _0x3cfe71 = _0x1d38;
-  while (!![]) {
-    try {
-      var _0x362dc4 =
-        parseInt(_0x3cfe71(0x135)) * -parseInt(_0x3cfe71(0x134)) +
-        -parseInt(_0x3cfe71(0x139)) +
-        parseInt(_0x3cfe71(0x136)) * -parseInt(_0x3cfe71(0x133)) +
-        -parseInt(_0x3cfe71(0x12b)) * parseInt(_0x3cfe71(0x13c)) +
-        parseInt(_0x3cfe71(0x130)) * parseInt(_0x3cfe71(0x138)) +
-        -parseInt(_0x3cfe71(0x12d)) * parseInt(_0x3cfe71(0x137)) +
-        -parseInt(_0x3cfe71(0x12f)) * -parseInt(_0x3cfe71(0x12c));
-      if (_0x362dc4 === _0x2f2b6c) break;
-      else _0x5f20cb['push'](_0x5f20cb['shift']());
-    } catch (_0x53c0aa) {
-      _0x5f20cb['push'](_0x5f20cb['shift']());
-    }
+function secretohehehe(_0x9f39x2) {
+  if (document[_0x115b[1]](_0x115b[0])) {
+    return _0x115b[2];
   }
-})(_0xea56, 0xe2fdc);
-function secretohehehe(_0x5452ae) {
-  var _0x1c7217 = _0x1d38;
-  if (document['querySelector'](_0x1c7217(0x132))) return _0x1c7217(0x13a);
-  if (_0x5452ae) return _0x1c7217(0x131);
-  document['querySelector'](_0x1c7217(0x13b))['innerHTML'] += _0x1c7217(0x12e);
+  if (_0x9f39x2) {
+    return _0x115b[3];
+  }
+  document[_0x115b[1]](_0x115b[5])[_0x115b[4]] += _0x115b[6];
 }
