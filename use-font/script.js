@@ -74,8 +74,8 @@ phrase.addEventListener('input', function () {
     .replace('a', 'á')
     .replace('e', 'ê')
     .replace('o', 'ô')
-    .replace('í', 'i')
-    .replace('ú', 'u')
+    .replace('i', 'í')
+    .replace('u', 'ú')
     .split(' ')
     .forEach((syllable) => {
       if (syllable === '') {
