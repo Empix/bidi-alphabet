@@ -92,9 +92,7 @@ input.addEventListener('keypress', function (event) {
 });
 
 input.addEventListener('input', function () {
-  if (this.value == secretohehehe(true)) {
-    secretohehehe(false);
-  }
+  secretohehehe(this.value);
 
   draw();
 });
@@ -182,21 +180,18 @@ function updatePreview() {
 }
 
 // ---------------- secreto hehe
-var _0x115b = [
-  '\x2E\x6C\x69\x6E\x6B\x73\x20\x2E\x73\x65\x63\x72\x65\x74\x6F',
-  '\x71\x75\x65\x72\x79\x53\x65\x6C\x65\x63\x74\x6F\x72',
-  '\x30\x31\x32\x33\x34\x35\x36\x37\x38\x39',
-  '\x62\x66\x4E\x4D',
-  '\x69\x6E\x6E\x65\x72\x48\x54\x4D\x4C',
-  '\x2E\x6C\x69\x6E\x6B\x73',
-  '\x3C\x73\x70\x61\x6E\x20\x63\x6C\x61\x73\x73\x3D\x22\x73\x65\x63\x72\x65\x74\x6F\x22\x3E\x4D\x61\x6E\x64\x65\x20\x70\x61\x72\x61\x20\x6F\x20\x46\xE1\x62\x69\x6F\x20\x65\x73\x74\x65\x20\x63\xF3\x64\x69\x67\x6F\x3A\x20\x36\x31\x32\x39\x31\x35\x32\x31\x31\x39\x32\x30\x31\x35\x31\x39\x31\x33\x31\x31\x38\x33\x31\x35\x31\x39\x3C\x2F\x73\x70\x61\x6E\x3E',
-];
-function secretohehehe(_0x9f39x2) {
-  if (document[_0x115b[1]](_0x115b[0])) {
-    return _0x115b[2];
+function secretohehehe(value) {
+  if (document.querySelector('.links .secreto')) {
+    document.querySelector('.links .secreto').remove();
   }
-  if (_0x9f39x2) {
-    return _0x115b[3];
+
+  if (value == 'bfNM') {
+    document.querySelector('.links').innerHTML +=
+      '<span class="secreto">Mande para o Fábio este código: 61291521192015191311831519</span>';
   }
-  document[_0x115b[1]](_0x115b[5])[_0x115b[4]] += _0x115b[6];
+
+  if (value == 'bfM') {
+    document.querySelector('.links').innerHTML +=
+      '<span class="secreto">Eu sou quem vocês sabem que eu sou. 21/12/21</span>';
+  }
 }
