@@ -71,11 +71,11 @@ phrase.addEventListener('input', function () {
 
   this.value
     .toLowerCase()
-    .replace('a', 'á')
-    .replace('e', 'ê')
-    .replace('o', 'ô')
-    .replace('i', 'í')
-    .replace('u', 'ú')
+    .replaceAll('a', 'á')
+    .replaceAll('e', 'ê')
+    .replaceAll('o', 'ô')
+    .replaceAll('i', 'í')
+    .replaceAll('u', 'ú')
     .split(' ')
     .forEach((syllable) => {
       if (syllable === '') {
