@@ -1,10 +1,10 @@
-require('dotenv').config();
-
 const fs = require('fs');
 const path = require('path');
 const csv = require('csvtojson');
 const fetch = require('node-fetch');
 const AdmZip = require('adm-zip');
+
+require('dotenv').config({ path: path.join(__dirname, '.env') });
 
 /**
  * Retorna um csv com aspas e aparentemente remove linhas vazias
