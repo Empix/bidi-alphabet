@@ -1,12 +1,10 @@
+require('dotenv').config();
+
 const fs = require('fs');
 const path = require('path');
 const csv = require('csvtojson');
 const fetch = require('node-fetch');
 const AdmZip = require('adm-zip');
-
-// https://docs.google.com/spreadsheets/d/1-7DOQuRnRQ9xH2RjzgcJxXoMGHWKWkO_feX29cowpYc/edit#gid=0
-const sheetId = '1-7DOQuRnRQ9xH2RjzgcJxXoMGHWKWkO_feX29cowpYc';
-const gid = '0';
 
 /**
  * Retorna um csv com aspas e aparentemente remove linhas vazias
@@ -15,6 +13,8 @@ const gid = '0';
  * Retorna um csv sem aspas (assim como quando é feito download pelo google)
  * https://docs.google.com/spreadsheets/d/{{ID}}/export?gid={{gid}}&format=csv
  */
+const sheetId = process.env.SHEET_ID;
+const gid = process.env.GID;
 const sheetUrl = `https://docs.google.com/spreadsheets/d/${sheetId}/export?gid=${gid}&format=csv`;
 const csvPath = path.join(__dirname, 'files', 'sheet.csv');
 const finalDataPath = path.join(__dirname, '..', 'data.js');
