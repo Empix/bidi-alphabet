@@ -29,6 +29,8 @@ const consonants = [
   'ç_',
 ]; // consoantes para adicionar
 
+data['\n'] = '\n';
+
 consonants.forEach((set) => {
   AllVowels.forEach((vowel, indexVowel) => {
     data[set.replace('_', vowel)] = `${set.replace('_', '')}${
@@ -78,6 +80,7 @@ phrase.addEventListener('input', function () {
     .replaceAll('u', 'ú')
     .replaceAll('ã', 'â')
     .replaceAll('õ', 'ô')
+    .replaceAll('\n', ' \n ')
     .split(' ')
     .forEach((syllable) => {
       if (syllable === '') {
