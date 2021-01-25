@@ -41,7 +41,7 @@ body {
 
 textarea,
 p,
-button {
+.button {
   font-size: 2em;
   border: none;
   border-radius: 10px;
@@ -127,6 +127,52 @@ button {
   align-items: center;
   gap: 20px;
   text-align: center;
+}
+
+/* Errors */
+.errors-container {
+  width: 90%;
+  display: flex;
+  position: relative;
+}
+
+#errors-btn {
+  font-size: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 10px;
+  font-weight: bold;
+  background-color: #e40000;
+  color: #fff;
+  border: 2px solid #fff;
+  cursor: pointer;
+}
+
+.errors-container .errors {
+  position: absolute;
+  top: 0;
+  left: 100px;
+  background-color: #2f373d;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #fff;
+  display: none;
+  max-height: 500px;
+  overflow-y: auto;
+}
+
+.errors-container .errors table {
+  border-collapse: collapse;
+  border: 2px solid #fff;
+}
+
+table th,
+table td {
+  padding: 10px;
+  border: 2px solid #fff;
+  max-width: 300px;
+  overflow-x: auto;
 }
 
 @media (max-width: 425px) {

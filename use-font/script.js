@@ -63,37 +63,40 @@ vowels2.forEach((vowel, index) => {
  *
  */
 
-const info = document.querySelector('#info');
+const errorsBtn = document.querySelector('#errors-btn');
+const errors = document.querySelector('.errors-table');
 const phrase = document.querySelector('#phrase');
 const bidiPhrase = document.querySelector('#bidi-phrase');
 const bidiResult = document.querySelector('#bidi-result');
 
+let unknowns = [];
+
 phrase.addEventListener('input', function () {
   let result = '';
+  unknowns = [];
 
   this.value
     .toLowerCase()
     .replaceAll('a', 'á')
+    .replaceAll('à', 'á')
+    .replaceAll('ã', 'â')
     .replaceAll('e', 'ê')
     .replaceAll('o', 'ô')
+    .replaceAll('õ', 'ô')
     .replaceAll('i', 'í')
     .replaceAll('u', 'ú')
-    .replaceAll('ã', 'â')
-    .replaceAll('õ', 'ô')
     .replaceAll('\n', ' \n ')
     .split(' ')
-    .forEach((syllable) => {
+    .forEach((syllable, index) => {
       if (syllable === '') {
-        info.innerHTML = '';
         return;
       }
 
       if (data[syllable]) {
         result += data[syllable];
-        info.innerHTML = '';
       } else {
         result += '<span class="wrong">?</span>';
-        info.innerHTML = `Não encontrei uma correspondência em BIDI para "<span>${syllable}</span>"`;
+        unknowns.push([syllable, index + 1]);
       }
     });
 
@@ -102,6 +105,35 @@ phrase.addEventListener('input', function () {
 
   bidiPhrase.scrollLeft = bidiPhrase.scrollWidth;
   bidiResult.scrollTop = bidiResult.scrollHeight;
+
+  errorsBtn.innerHTML = `Erros: ${unknowns.length || '0'}`;
+  populateErrorsTable();
+});
+
+function populateErrorsTable() {
+  errors.innerHTML = `
+  <tr>
+    <th>Sílaba</th>
+    <th>Posição</th>
+  </tr>
+  `;
+
+  unknowns.forEach(([syllable, position]) => {
+    const tr = document.createElement('tr');
+    const syllableTd = document.createElement('td');
+    const positionTd = document.createElement('td');
+
+    syllableTd.innerText = syllable;
+    positionTd.innerText = position;
+
+    tr.append(syllableTd, positionTd);
+    errors.append(tr);
+  });
+}
+
+errorsBtn.addEventListener('click', () => {
+  errors.parentElement.style.display =
+    errors.parentElement.style.display == 'block' ? 'none' : 'block';
 });
 
 document.querySelector('#change-font').addEventListener('click', function () {

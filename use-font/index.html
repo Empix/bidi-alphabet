@@ -10,7 +10,18 @@
   </head>
   <body>
     <div class="container">
-      <p id="info"></p>
+      <div class="errors-container">
+        <button id="errors-btn">Erros: 0</button>
+        <div class="errors">
+          <table class="errors-table">
+            <tr>
+              <th>Sílaba</th>
+              <th>Posição</th>
+            </tr>
+          </table>
+        </div>
+      </div>
+
       <textarea
         type="text"
         id="phrase"
@@ -19,7 +30,7 @@
       <p id="bidi-phrase" data-placeholder="Frase em BIDI"></p>
       <p id="bidi-result"></p>
       <div class="actions">
-        <button id="change-font">
+        <button id="change-font" class="button">
           Mudar fonte para Hi-res <span>exêmŒô</span>
         </button>
         <a href=".." class="goback">Usar canvas</a>
