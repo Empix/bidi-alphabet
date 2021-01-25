@@ -65,6 +65,8 @@ vowels2.forEach((vowel, index) => {
 
 const errorsBtn = document.querySelector('#errors-btn');
 const errors = document.querySelector('.errors-table');
+const errorsContainer = document.querySelector('.errors-container');
+
 const phrase = document.querySelector('#phrase');
 const bidiPhrase = document.querySelector('#bidi-phrase');
 const bidiResult = document.querySelector('#bidi-result');
@@ -107,27 +109,36 @@ phrase.addEventListener('input', function () {
   bidiResult.scrollTop = bidiResult.scrollHeight;
 
   errorsBtn.innerHTML = `Erros: ${unknowns.length || '0'}`;
+  if (unknowns.length == 0) {
+    errorsContainer.style.display = 'none';
+  } else {
+    errorsContainer.style.display = 'flex';
+  }
   populateErrorsTable();
 });
 
 function populateErrorsTable() {
   errors.innerHTML = `
-  <tr>
+  <tr id="errors-silaba">
     <th>Sílaba</th>
+  </tr>
+  <tr id="errors-posicao">
     <th>Posição</th>
   </tr>
   `;
 
+  const errorsSilaba = document.querySelector('#errors-silaba');
+  const errorsPosicao = document.querySelector('#errors-posicao');
+
   unknowns.forEach(([syllable, position]) => {
-    const tr = document.createElement('tr');
     const syllableTd = document.createElement('td');
     const positionTd = document.createElement('td');
 
     syllableTd.innerText = syllable;
     positionTd.innerText = position;
 
-    tr.append(syllableTd, positionTd);
-    errors.append(tr);
+    errorsSilaba.append(syllableTd);
+    errorsPosicao.append(positionTd);
   });
 }
 

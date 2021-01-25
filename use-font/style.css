@@ -132,8 +132,8 @@ p,
 /* Errors */
 .errors-container {
   width: 90%;
-  display: flex;
-  position: relative;
+  display: none;
+  gap: 20px;
 }
 
 #errors-btn {
@@ -151,9 +151,6 @@ p,
 }
 
 .errors-container .errors {
-  position: absolute;
-  top: 0;
-  left: 100px;
   background-color: #2f373d;
   font-family: Arial, Helvetica, sans-serif;
   color: #fff;
