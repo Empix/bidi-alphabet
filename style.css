@@ -146,6 +146,27 @@ table td {
   overflow-x: auto;
 }
 
+/* Menu */
+.menu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+a {
+  background-color: #fff;
+  font-size: 1.2em;
+  border-radius: 10px;
+  padding: 10px;
+  cursor: pointer;
+  text-decoration: none;
+  color: #000;
+  font-family: Arial, Helvetica, sans-serif;
+  white-space: nowrap;
+}
+
 @media (max-width: 425px) {
   input,
   p {

@@ -26,11 +26,7 @@
         </div>
       </div>
 
-      <textarea
-        type="text"
-        id="phrase"
-        placeholder="Sua frase (separada em sílabas)"
-      ></textarea>
+      <textarea type="text" id="phrase" placeholder="Sua frase"></textarea>
       <p id="bidi-phrase" data-placeholder="Frase em BIDI"></p>
       <p id="bidi-result"></p>
       <div class="actions">
@@ -38,13 +34,23 @@
           Usar fonte Hi-res <span>exêmŒô</span>
         </button>
         <div class="menu">
-          <a href="palavra.html">Por palavra (BETA)</a>
+          <a href="index.html">Por sílaba</a>
           <a href="reverso.html">Reverso (BETA)</a>
         </div>
       </div>
     </div>
 
     <script src="./data.js"></script>
-    <script src="./script.js"></script>
+    <script src="./bidi.js"></script>
+    <script>
+      const conversor = new BIDI({
+        input: document.querySelector('#phrase'),
+        outputs: [
+          document.querySelector('#bidi-phrase'),
+          document.querySelector('#bidi-result'),
+        ],
+        type: 'encrypt',
+      });
+    </script>
   </body>
 </html>
