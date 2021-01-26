@@ -94,32 +94,6 @@ p,
   color: #e40000;
 }
 
-#info {
-  font-family: 'Lenda';
-  text-align: center;
-  color: #fff;
-  position: absolute;
-  top: 0;
-}
-
-#info span {
-  font-family: Arial, Helvetica, sans-serif;
-  font-weight: bold;
-}
-
-.goback {
-  background-color: #fff;
-  font-size: 1.2em;
-  border-radius: 10px;
-  padding: 10px;
-  cursor: pointer;
-  text-decoration: none;
-  cursor: pointer;
-  color: #000;
-  font-family: Arial, Helvetica, sans-serif;
-  align-self: flex-start;
-}
-
 .actions {
   width: 90%;
   display: flex;

@@ -1,95 +1,46 @@
 <!DOCTYPE html>
 <html lang="pt-br">
   <head>
-    <!--  -->
-    <title>BIDI Alphabet</title>
+    <title>BIDI Font</title>
 
     <link rel="shortcut icon" href="./assets/images/bidi.png" />
-
-    <meta content="BIDI Alphabet" property="og:title" />
-    <meta content="BIDI Alphabet" property="og:site_name" />
-    <meta
-      content="https://empixx.github.io/bidi-alphabet/assets/images/bidi.png"
-      property="og:image"
-    />
 
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="stylesheet" href="./styles/style.css" />
+    <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
     <div class="container">
-      <div class="links">
-        <a href="./use-font/" class="use-font button">Usar fonte</a>
+      <div class="errors-container">
+        <button id="errors-btn">Erros: 0</button>
+        <div class="errors">
+          <table class="errors-table">
+            <tr id="errors-silaba">
+              <th>Sílaba</th>
+            </tr>
+            <tr id="errors-posicao">
+              <th>Posição</th>
+            </tr>
+          </table>
+        </div>
       </div>
 
-      <div class="phrase-input">
-        <input type="text" placeholder="Insira sua frase separada em silabas" />
-      </div>
-
-      <canvas id="preview"></canvas>
-
-      <div id="full-text">
-        <img />
-      </div>
+      <textarea
+        type="text"
+        id="phrase"
+        placeholder="Frase separada em sílabas"
+      ></textarea>
+      <p id="bidi-phrase" data-placeholder="Frase em BIDI"></p>
+      <p id="bidi-result"></p>
       <div class="actions">
-        <button class="button" onclick="startExport('fullText')">
-          EXPORTAR
+        <button id="change-font" class="button">
+          Mudar fonte para Hi-res <span>exêmŒô</span>
         </button>
       </div>
     </div>
 
-    <div class="popup">
-      <div class="export">
-        <strong>Preview:</strong>
-        <div class="preview">
-          <img />
-        </div>
-
-        <span class="info" id="originalSize">
-          <strong>Tamanho original: </strong> <span>16x16</span>
-        </span>
-        <span class="info" id="scaledSize">
-          <strong>Tamanho final: </strong> <span>16x16</span>
-        </span>
-
-        <div class="input-scale">
-          <label for="scale">Escala: </label>
-          <input type="range" max="32" min="1" id="scale" value="1" />
-          <span>1x</span>
-        </div>
-
-        <div class="actions">
-          <button
-            id="export-btn"
-            class="button"
-            title="Fazer download"
-            onclick="exportImage('download')"
-          >
-            DOWNLOAD
-          </button>
-          <button
-            id="copy-btn"
-            class="button"
-            title="Copiar para área de transferência"
-            onclick="exportImage('copy')"
-          >
-            COPIAR
-          </button>
-          <button class="button" onclick="hidePopup()" title="Fechar popup">
-            FECHAR
-          </button>
-        </div>
-      </div>
-    </div>
-
-    <div class="info-popup">
-      <p>Download iniciado!</p>
-    </div>
-
-    <script src="./scripts/export.js"></script>
-    <script src="./scripts/createSetOfLetters.js"></script>
-    <script src="./scripts/script.js"></script>
+    <script src="./data.js"></script>
+    <script src="./script.js"></script>
   </body>
 </html>

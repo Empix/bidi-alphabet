@@ -1,45 +1,53 @@
 <!DOCTYPE html>
 <html lang="pt-br">
   <head>
-    <title>BIDI Font</title>
+    <title>Mudou de link</title>
 
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="stylesheet" href="./style.css" />
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #222;
+        color: #fff;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      a {
+        color: #fff;
+      }
+
+      div {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 10px;
+      }
+    </style>
   </head>
   <body>
-    <div class="container">
-      <div class="errors-container">
-        <button id="errors-btn">Erros: 0</button>
-        <div class="errors">
-          <table class="errors-table">
-            <tr id="errors-silaba">
-              <th>Sílaba</th>
-            </tr>
-            <tr id="errors-posicao">
-              <th>Posição</th>
-            </tr>
-          </table>
-        </div>
-      </div>
-
-      <textarea
-        type="text"
-        id="phrase"
-        placeholder="Frase separada em sílabas"
-      ></textarea>
-      <p id="bidi-phrase" data-placeholder="Frase em BIDI"></p>
-      <p id="bidi-result"></p>
-      <div class="actions">
-        <button id="change-font" class="button">
-          Mudar fonte para Hi-res <span>exêmŒô</span>
-        </button>
-        <a href=".." class="goback">Usar canvas</a>
-      </div>
+    <div>
+      <h1>Mudamos para o link principal!</h1>
+      <a href=".."></a>
     </div>
 
-    <script src="./data.js"></script>
-    <script src="./script.js"></script>
+    <script>
+      document.querySelector('a').innerText =
+        window.location.origin + '/bidi-alphabet';
+    </script>
   </body>
 </html>
