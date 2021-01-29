@@ -99,14 +99,14 @@ class BIDI {
 
     string = string
       .toLowerCase()
-      .replaceAll('a', 'á')
-      .replaceAll('à', 'á')
-      .replaceAll('ã', 'â')
-      .replaceAll('e', 'ê')
-      .replaceAll('o', 'ô')
-      .replaceAll('õ', 'ô')
+      // .replaceAll('a', 'á')
+      // .replaceAll('à', 'á')
+      // .replaceAll('ã', 'â')
+      // .replaceAll('e', 'ê')
+      // .replaceAll('o', 'ô')
+      // .replaceAll('õ', 'ô')
       // .replaceAll('i', 'í')
-      .replaceAll('u', 'ú')
+      // .replaceAll('u', 'ú')
       .replaceAll('\n', ' \n ');
 
     let result = '';
