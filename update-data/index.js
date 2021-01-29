@@ -55,6 +55,10 @@ async function csvToJs() {
       const result = {};
 
       json.forEach((obj) => {
+        if (obj['IGNORAR?\n(FILTRO 1)'] == 'TRUE') {
+          return;
+        }
+
         const pt = obj['Português \n(NÃO MEXER!)'];
         const bidi = obj['BIDI\n(NÃO MEXER!)'];
 
