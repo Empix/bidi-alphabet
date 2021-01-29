@@ -105,7 +105,7 @@ class BIDI {
       .replaceAll('e', 'ê')
       .replaceAll('o', 'ô')
       .replaceAll('õ', 'ô')
-      .replaceAll('i', 'í')
+      // .replaceAll('i', 'í')
       .replaceAll('u', 'ú')
       .replaceAll('\n', ' \n ');
 
