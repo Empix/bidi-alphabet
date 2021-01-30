@@ -109,6 +109,8 @@ class BIDI {
       .replaceAll('õ', 'ô')
       // .replaceAll('i', 'í')
       // .replaceAll('u', 'ú')
+      .replaceAll('í', 'i')
+      .replaceAll('ú', 'u')
       .replaceAll('\n', ' \n ');
 
     let result = '';
