@@ -97,7 +97,10 @@ phrase.addEventListener('input', function () {
       }
 
       if (data[syllable]) {
-        result += data[syllable];
+        result += data[syllable].replaceAll(
+          '?',
+          '<span class="alert">?</span>'
+        );
       } else {
         result += '<span class="wrong">?</span>';
         unknowns.push([syllable, index + 1]);

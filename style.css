@@ -93,6 +93,9 @@ p,
 .wrong {
   color: #e40000;
 }
+.alert {
+  color: #0066ff;
+}
 
 .actions {
   width: 90%;

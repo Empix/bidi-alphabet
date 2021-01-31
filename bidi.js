@@ -87,7 +87,7 @@ class BIDI {
     input.addEventListener('input', ({ target }) => {
       this.outputs.forEach((output) => {
         if (output.nodeName != 'TEXTAREA' || output.nodeName != 'INPUT') {
-          output.innerText = BIDI[this.type](target.value);
+          output.innerHTML = BIDI[this.type](target.value);
         } else {
           output.value = BIDI[this.type](target.value);
         }
@@ -137,12 +137,14 @@ class BIDI {
           end -= find.length;
           i = 0;
           found = true;
-          bidi.unshift(dataToFind[find]);
+          bidi.unshift(
+            dataToFind[find].replaceAll('?', '<span class="alert">?</span>')
+          );
         } else if (!dataToFind[find] && find.length == 1) {
           end -= find.length;
           i = 0;
           found = true;
-          bidi.unshift('?');
+          bidi.unshift('<span class="wrong">?</span>');
         } else {
           found = false;
         }
