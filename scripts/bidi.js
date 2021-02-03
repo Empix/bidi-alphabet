@@ -125,7 +125,10 @@ class BIDI {
         }
 
         if (data[syllable]) {
-          result += data[syllable];
+          result += data[syllable].replaceAll(
+            '?',
+            '<span class="alert">?</span>'
+          );
         } else {
           result += '<span class="wrong">?</span>';
           this.errors.push([syllable, index + 1]);
