@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt-br">
   <head>
-    <title>BIDI - Sílabas</title>
+    <title>BIDI - Palavras</title>
 
     <link rel="shortcut icon" href="./assets/favicon.png" />
 
@@ -25,8 +25,8 @@
             <i class="material-icons">menu</i>
           </button>
           <ul>
-            <li><a href="./index.html" class="active">Converter sílabas</a></li>
-            <li><a href="./word.html">Converter palavras</a></li>
+            <li><a href="./index.html">Converter sílabas</a></li>
+            <li><a href="./word.html" class="active">Converter palavras</a></li>
             <li><a href="./bidi.html">Converter BIDI</a></li>
           </ul>
         </div>
@@ -39,7 +39,7 @@
               <i class="material-icons">error</i>
               <span>Erros: 0</span>
             </div>
-            <div class="syllables info-card" style="display: none">
+            <div class="syllables info-card">
               <i class="material-icons">book</i>
               <span>Sílabas</span>
             </div>
@@ -93,7 +93,7 @@
           document.querySelector('#bidi-text'),
           document.querySelector('#bidi-text-font'),
         ],
-        type: 'encryptOld',
+        type: 'encrypt',
         onConvert: handleConvert,
       });
     </script>

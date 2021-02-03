@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt-br">
   <head>
-    <title>BIDI - Sílabas</title>
+    <title>BIDI - BIDI</title>
 
     <link rel="shortcut icon" href="./assets/favicon.png" />
 
@@ -25,9 +25,9 @@
             <i class="material-icons">menu</i>
           </button>
           <ul>
-            <li><a href="./index.html" class="active">Converter sílabas</a></li>
+            <li><a href="./index.html">Converter sílabas</a></li>
             <li><a href="./word.html">Converter palavras</a></li>
-            <li><a href="./bidi.html">Converter BIDI</a></li>
+            <li><a href="./bidi.html" class="active">Converter BIDI</a></li>
           </ul>
         </div>
       </header>
@@ -74,11 +74,11 @@
         <div class="inputs-area">
           <textarea
             rows="4"
-            placeholder="Seu texto (separado em sílabas)"
-            id="pt-text"
+            placeholder="Seu texto em bidi"
+            id="bidi-text"
           ></textarea>
-          <p id="bidi-text" placeholder="bídí"></p>
           <p id="bidi-text-font" placeholder="bídí"></p>
+          <p id="pt-text" placeholder="português"></p>
         </div>
       </section>
     </div>
@@ -87,14 +87,16 @@
     <script src="./scripts/data.js"></script>
     <script src="./scripts/bidi.js"></script>
     <script>
+      const bidiTextFont = document.querySelector('#bidi-text-font');
+
       const conversor = new BIDI({
-        input: document.querySelector('#pt-text'),
-        outputs: [
-          document.querySelector('#bidi-text'),
-          document.querySelector('#bidi-text-font'),
-        ],
-        type: 'encryptOld',
-        onConvert: handleConvert,
+        input: document.querySelector('#bidi-text'),
+        outputs: [document.querySelector('#pt-text')],
+        type: 'decrypt',
+        onConvert: (bidi) => {
+          handleConvert(bidi);
+          bidiTextFont.innerText = bidi.input.value;
+        },
       });
     </script>
   </body>

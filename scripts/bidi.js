@@ -1,103 +1,36 @@
-// const toAdd = ['á_', 'â_', 'é_', 'ê_', 'i_', 'ó_', 'ô_', 'u_']; // vogais para adicionar
-// const bidi = ['a', 'a', 'e', 'e', 'i', 'o', 'o', 'u']; // correspondencia em bidi (repete por conta da posição)
-// const vowels = ['á', 'â', 'é', 'ê', 'í', 'ó', 'ô', 'ú']; // i, u com acento
-// const vowels2 = ['á', 'â', 'é', 'ê', 'i', 'ó', 'ô', 'u']; // i, u sem acento
-// const AllVowels = ['á', 'â', 'é', 'ê', 'i', 'í', 'ó', 'ô', 'u', 'ú'];
-// const AllVowelsBidi = ['á', 'â', 'é', 'ê', 'í', 'í', 'ó', 'ô', 'ú', 'ú'];
-// const consonants = [
-//   'b_',
-//   'c_',
-//   'd_',
-//   'f_',
-//   'g_',
-//   'h_',
-//   'j_',
-//   'k_',
-//   'l_',
-//   'm_',
-//   'n_',
-//   'p_',
-//   'q_',
-//   'r_',
-//   's_',
-//   't_',
-//   'v_',
-//   'w_',
-//   'x_',
-//   'y_',
-//   'z_',
-//   'ç_',
-// ]; // consoantes para adicionar
-
-// data['\n'] = '\n';
-
-// consonants.forEach((set) => {
-//   AllVowels.forEach((vowel, indexVowel) => {
-//     data[set.replace('_', vowel)] = `${set.replace('_', '')}${
-//       AllVowelsBidi[indexVowel]
-//     }`;
-//   });
-// }); // Adiciona as consoantes com as vogais
-
-// consonants.forEach((set) => {
-//   data[set.replace('_', '')] = set.replace('_', '');
-// }); // Adicionar as consoantes sozinhas
-
-// toAdd.forEach((set, index) => {
-//   AllVowels.forEach((vowel, indexVowel) => {
-//     data[
-//       set.replace('_', vowel)
-//     ] = `${bidi[index]}${AllVowelsBidi[indexVowel]}`;
-//   });
-// }); // Adiciona as vogais com as vogais
-
-// vowels2.forEach((vowel, index) => {
-//   data[vowel] = bidi[index];
-// }); // Adiciona as vogais sozinhas
-
 data['\n'] = '\n';
 
-const bidiResult = document.querySelector('#bidi-result');
-
-document.querySelector('#change-font').addEventListener('click', function () {
-  if (
-    bidiResult.style.fontFamily != 'BIDI' &&
-    bidiResult.style.fontFamily != ''
-  ) {
-    this.innerHTML = 'Usar fonte Hi-res <span>exêmŒô</span>';
-    bidiResult.style.fontFamily = 'BIDI';
-    this.children[0].style.fontFamily = 'BidiStylishHi_res-Regular';
-  } else {
-    this.innerHTML = 'Usar fonte Pixel <span>exêmŒô</span>';
-    bidiResult.style.fontFamily = 'BidiStylishHi_res-Regular';
-    this.children[0].style.fontFamily = 'BIDI';
-  }
-});
-
 class BIDI {
-  constructor({ input, outputs, type }) {
+  constructor({ input, outputs, type, onConvert }) {
     this.input = input;
     this.outputs = Array.isArray(outputs) ? outputs : [outputs];
     this.type = type;
+    this.errors = [];
+    this.syllables = [];
+    this.onConvert = onConvert || (() => {});
 
-    if (!BIDI[type]) {
+    if (!this[this.type]) {
       throw new Error(`"${this.type}" type does not exist!`);
     }
 
     input.addEventListener('input', ({ target }) => {
       this.outputs.forEach((output) => {
         if (output.nodeName != 'TEXTAREA' || output.nodeName != 'INPUT') {
-          output.innerHTML = BIDI[this.type](target.value);
+          const result = this[this.type](target.value);
+          output.innerHTML = result;
         } else {
-          output.value = BIDI[this.type](target.value);
+          output.value = this[this.type](target.value);
         }
       });
     });
   }
 
-  static encrypt(string) {
+  encrypt(string) {
     // console.time('Tempo');
     let loops = 0;
+
+    this.errors = [];
+    this.syllables = [];
 
     string = string
       .toLowerCase()
@@ -117,6 +50,7 @@ class BIDI {
 
     string.split(' ').forEach((word) => {
       let bidi = [];
+      let syllables = [];
 
       let dataToFind = {};
       for (const set in data) {
@@ -140,11 +74,14 @@ class BIDI {
           bidi.unshift(
             dataToFind[find].replaceAll('?', '<span class="alert">?</span>')
           );
+          syllables.unshift(find);
         } else if (!dataToFind[find] && find.length == 1) {
           end -= find.length;
           i = 0;
           found = true;
           bidi.unshift('<span class="wrong">?</span>');
+          syllables.unshift('?');
+          this.errors.push([find, word]);
         } else {
           found = false;
         }
@@ -152,18 +89,58 @@ class BIDI {
         if (end <= 0) break;
       }
 
+      this.syllables.push([word, syllables.join('-')]);
       result += bidi.join('');
     });
 
     // console.log(`Resultado: \n${result}`);
     // console.log(`Loops: ${loops}`);
     // console.timeEnd('Tempo');
+    this.onConvert(this);
     return result;
   }
 
-  static decrypt(string, withSpaces = true) {
+  encryptOld(string) {
+    let result = '';
+
+    this.errors = [];
+
+    string
+      .toLowerCase()
+      // .replaceAll('a', 'á')
+      .replaceAll('à', 'á')
+      .replaceAll('ã', 'â')
+      // .replaceAll('e', 'ê')
+      // .replaceAll('o', 'ô')
+      .replaceAll('õ', 'ô')
+      // .replaceAll('i', 'í')
+      // .replaceAll('u', 'ú')
+      .replaceAll('í', 'i')
+      .replaceAll('ú', 'u')
+      .replaceAll('\n', ' \n ')
+      .split(' ')
+      .forEach((syllable, index) => {
+        if (syllable === '') {
+          return;
+        }
+
+        if (data[syllable]) {
+          result += data[syllable];
+        } else {
+          result += '<span class="wrong">?</span>';
+          this.errors.push([syllable, index + 1]);
+        }
+      });
+
+    this.onConvert(this);
+    return result;
+  }
+
+  decrypt(string, withSpaces = true) {
     // console.time('Tempo');
     let loops = 0;
+
+    this.errors = [];
 
     let result = '';
 
@@ -190,6 +167,7 @@ class BIDI {
           result += dataToFind[find];
         }
       } else if (!dataToFind[find] && find.length == 1) {
+        this.errors.push([find, start + 1]);
         start += 1;
         i = string.length - 1;
         result += '?';
@@ -205,6 +183,8 @@ class BIDI {
     // console.log(`Resultado: \n${result}`);
     // console.log(`Loops: ${loops}`);
     // console.timeEnd('Tempo');
+    this.onConvert(this);
+
     return result;
   }
 }

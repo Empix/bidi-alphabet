@@ -17,11 +17,11 @@ const sheetId = process.env.SHEET_ID;
 const gid = process.env.GID;
 const sheetUrl = `https://docs.google.com/spreadsheets/d/${sheetId}/export?gid=${gid}&format=csv`;
 const csvPath = path.join(__dirname, 'files', 'sheet.csv');
-const finalDataPath = path.join(__dirname, '..', 'data.js');
+const finalDataPath = path.join(__dirname, '..', 'scripts', 'data.js');
 
 const fontsUrl = `https://www.dropbox.com/sh/xmowiag4ap530pe/AAB1xfiQ8mXHxHJSh2XM8reBa?dl=1`;
 const fontsPath = path.join(__dirname, 'files', 'fonts.zip');
-const finalFontsPath = path.join(__dirname, '..', 'fonts');
+const finalFontsPath = path.join(__dirname, '..', 'assets', 'fonts');
 
 (async () => {
   console.log('- Baixando csv...');

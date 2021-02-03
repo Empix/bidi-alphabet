@@ -1,0 +1,304 @@
+/* Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+
+@font-face {
+  font-family: 'BIDI';
+  src: url('../assets/fonts/BIDI.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'BidiStylishHi_res-Regular';
+  src: url('../assets/fonts/BidiStylishHi_res-Regular.ttf') format('truetype');
+}
+
+/* Variables */
+:root {
+  --secondary: #435461;
+  --secondary-dark: #394752;
+  --secondary-darker: #2f373d;
+  --primary: #fff;
+  --error: #f21818;
+
+  --bidi-font: 'BidiStylishHi_res-Regular';
+}
+
+/* Reset */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  outline: none;
+  font-family: 'Roboto', sans-serif;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  background-color: var(--secondary-darker);
+  overflow: overlay;
+}
+
+/* Scrollbar */
+body::-webkit-scrollbar {
+  width: 0.4em;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: var(--primary);
+  border-radius: 10px;
+}
+
+/* Container */
+.container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Header */
+header {
+  width: 100%;
+  background-color: var(--secondary);
+  color: var(--primary);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 100px;
+}
+
+header .logo img {
+  width: 32px;
+}
+
+header .menu .mobile-menu {
+  border: 0;
+  background-color: transparent;
+  display: none;
+  cursor: pointer;
+}
+
+header .menu .mobile-menu i {
+  color: var(--primary);
+  font-size: 32px;
+}
+
+header .menu ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+}
+
+header .menu ul li a {
+  color: var(--primary);
+  text-decoration: none;
+}
+
+header .menu ul li a.active {
+  text-decoration: underline;
+}
+
+/* Content */
+.content {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 0 100px 100px 100px;
+}
+
+/* Tool-bar */
+.tool-bar {
+  width: 100%;
+  margin-top: 10px;
+  padding: 10px 0;
+  color: var(--primary);
+  display: flex;
+  gap: 20px;
+}
+
+/* Infos */
+.infos {
+  flex-grow: 1;
+  display: flex;
+  overflow: auto;
+}
+
+.infos::-webkit-scrollbar {
+  height: 0.8em;
+}
+
+.infos::-webkit-scrollbar-thumb {
+  border: 2px solid var(--secondary-darker);
+  background-color: var(--primary);
+  border-radius: 10px;
+}
+
+.info-card {
+  background-color: var(--primary);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--error);
+  gap: 6px;
+  font-weight: 500;
+  padding: 6px 10px 6px 6px;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.info-card.syllables {
+  color: var(--secondary);
+  background-color: var(--primary);
+}
+
+.errors {
+  display: none;
+  white-space: nowrap;
+}
+
+.errors-table {
+  display: none;
+}
+
+table {
+  border-collapse: collapse;
+  text-align: center;
+}
+
+table,
+table tr,
+table th,
+table td {
+  border: 2px solid var(--primary);
+}
+
+table th,
+table td {
+  padding: 6px;
+}
+
+table td {
+  white-space: nowrap;
+}
+
+.syllable-table {
+  display: none;
+}
+
+/* Settings */
+.settings {
+  position: relative;
+  margin: auto;
+}
+
+.settings button {
+  background-color: transparent;
+  border: none;
+  color: var(--primary);
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.settings button:hover {
+  background-color: var(--secondary);
+}
+
+.settings button i {
+  font-size: 32px;
+}
+
+/* Inputs Area */
+.inputs-area {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  flex-direction: column;
+}
+
+.inputs-area textarea,
+.inputs-area p {
+  width: 100%;
+  font-size: 40px;
+  resize: vertical;
+  padding: 10px;
+  border-radius: 6px;
+  color: #111;
+  border: 0;
+}
+
+.inputs-area p {
+  background-color: var(--primary);
+  height: 200px;
+  overflow-wrap: anywhere;
+  overflow-y: scroll;
+}
+
+.inputs-area p:empty::before {
+  content: attr(placeholder);
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.inputs-area textarea:disabled {
+  background-color: var(--primary);
+  color: #111;
+  cursor: text;
+}
+
+#bidi-text-font {
+  font-family: var(--bidi-font);
+}
+
+.inputs-area p .wrong {
+  color: var(--error);
+}
+
+.inputs-area p .alert {
+  color: #0066ff;
+}
+
+/* Responsive */
+@media (max-width: 1000px) {
+  header {
+    padding: 10px 50px;
+  }
+
+  .content {
+    padding: 0 50px;
+  }
+}
+
+@media (max-width: 665px) {
+  header .menu ul {
+    position: absolute;
+    top: 56px;
+    left: 0;
+    width: 100%;
+    background-color: var(--secondary-dark);
+    padding: 40px 0;
+    flex-direction: column;
+    gap: 20px;
+    z-index: 10;
+    display: none;
+  }
+
+  header .menu .mobile-menu {
+    display: block;
+  }
+}
+
+@media (max-width: 560px) {
+  header {
+    padding: 10px 25px;
+  }
+
+  .content {
+    padding: 0 25px;
+  }
+}
