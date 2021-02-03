@@ -173,7 +173,7 @@ class BIDI {
         this.errors.push([find, start + 1]);
         start += 1;
         i = string.length - 1;
-        result += '?';
+        result += '<span class="wrong">?</span>';
       }
     }
 
