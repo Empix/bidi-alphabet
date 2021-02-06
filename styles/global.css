@@ -18,6 +18,7 @@
   --secondary-darker: #2f373d;
   --primary: #fff;
   --error: #f21818;
+  --debug-color: #a200ff;
 
   --bidi-font: 'BidiStylishHi_res-Regular';
 }
@@ -194,6 +195,7 @@ table td {
 .settings {
   position: relative;
   margin: auto;
+  white-space: nowrap;
 }
 
 .settings button {
@@ -202,6 +204,12 @@ table td {
   color: var(--primary);
   cursor: pointer;
   border-radius: 5px;
+  margin-right: 5px;
+  transition: background-color 0.2s;
+}
+
+.settings button:last-child {
+  margin-right: 0;
 }
 
 .settings button:hover {
@@ -210,6 +218,10 @@ table td {
 
 .settings button i {
   font-size: 32px;
+}
+
+#debug-mode {
+  border: 2px solid transparent;
 }
 
 /* Inputs Area */
@@ -261,6 +273,10 @@ table td {
 
 .inputs-area p .alert {
   color: #0066ff;
+}
+
+.inputs-area p .databaseWord {
+  color: var(--debug-color);
 }
 
 /* Responsive */

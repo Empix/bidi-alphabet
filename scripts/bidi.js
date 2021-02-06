@@ -1,4 +1,4 @@
-data['\n'] = '\n';
+syllablesData['\n'] = '\n';
 
 class BIDI {
   constructor({ input, outputs, type, onConvert }) {
@@ -34,14 +34,9 @@ class BIDI {
 
     string = string
       .toLowerCase()
-      // .replaceAll('a', 'á')
       .replaceAll('à', 'á')
       .replaceAll('ã', 'â')
-      // .replaceAll('e', 'ê')
-      // .replaceAll('o', 'ô')
       .replaceAll('õ', 'ô')
-      // .replaceAll('i', 'í')
-      // .replaceAll('u', 'ú')
       .replaceAll('í', 'i')
       .replaceAll('ú', 'u')
       .replaceAll('\n', ' \n ');
@@ -52,10 +47,16 @@ class BIDI {
       let bidi = [];
       let syllables = [];
 
+      if (wordsData[word]) {
+        this.syllables.push([word, 'TABELA']);
+        result += `<span class="databaseWord">${wordsData[word]}</span>`;
+        return;
+      }
+
       let dataToFind = {};
-      for (const set in data) {
+      for (const set in syllablesData) {
         if (word.includes(set)) {
-          dataToFind[set] = data[set];
+          dataToFind[set] = syllablesData[set];
         }
       }
 
@@ -107,14 +108,9 @@ class BIDI {
 
     string
       .toLowerCase()
-      // .replaceAll('a', 'á')
       .replaceAll('à', 'á')
       .replaceAll('ã', 'â')
-      // .replaceAll('e', 'ê')
-      // .replaceAll('o', 'ô')
       .replaceAll('õ', 'ô')
-      // .replaceAll('i', 'í')
-      // .replaceAll('u', 'ú')
       .replaceAll('í', 'i')
       .replaceAll('ú', 'u')
       .replaceAll('\n', ' \n ')
@@ -124,8 +120,8 @@ class BIDI {
           return;
         }
 
-        if (data[syllable]) {
-          result += data[syllable].replaceAll(
+        if (syllablesData[syllable]) {
+          result += syllablesData[syllable].replaceAll(
             '?',
             '<span class="alert">?</span>'
           );
@@ -148,9 +144,9 @@ class BIDI {
     let result = '';
 
     const dataToFind = {};
-    for (const set in data) {
-      if (string.includes(data[set])) {
-        dataToFind[data[set]] = set;
+    for (const set in syllablesData) {
+      if (string.includes(syllablesData[set])) {
+        dataToFind[syllablesData[set]] = set;
       }
     }
 

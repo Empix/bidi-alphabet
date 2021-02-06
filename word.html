@@ -66,8 +66,11 @@
           </div>
 
           <div class="settings">
+            <button id="debug-mode" title="Ativar debug">
+              <i class="material-icons">bug_report</i>
+            </button>
             <button id="change-font" title="Mudar fonte">
-              <i class="material-icons">text_format</i>
+              <i class="material-icons">font_download</i>
             </button>
           </div>
         </div>
@@ -80,7 +83,8 @@
     </div>
 
     <script src="./scripts/misc.js"></script>
-    <script src="./scripts/data.js"></script>
+    <script src="./scripts/wordsData.js"></script>
+    <script src="./scripts/syllablesData.js"></script>
     <script src="./scripts/bidi.js"></script>
     <script>
       const conversor = new BIDI({
