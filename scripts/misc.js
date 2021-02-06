@@ -35,19 +35,21 @@ changeFontBtn.addEventListener('click', function () {
 
 const debugModeBtn = document.querySelector('#debug-mode');
 
-debugModeBtn.addEventListener('click', function () {
-  const currentDebugColor = localStorage.getItem('--debug-color');
+if (debugModeBtn) {
+  debugModeBtn.addEventListener('click', function () {
+    const currentDebugColor = localStorage.getItem('--debug-color');
 
-  if (!currentDebugColor || currentDebugColor == '#000') {
-    document.documentElement.style.setProperty('--debug-color', '#a200ff');
-    localStorage.setItem('--debug-color', '#a200ff');
-    debugModeBtn.style.border = '2px solid #fff';
-  } else {
-    document.documentElement.style.setProperty('--debug-color', '#000');
-    localStorage.setItem('--debug-color', '#000');
-    debugModeBtn.style.border = '2px solid transparent';
-  }
-});
+    if (!currentDebugColor || currentDebugColor == '#000') {
+      document.documentElement.style.setProperty('--debug-color', '#a200ff');
+      localStorage.setItem('--debug-color', '#a200ff');
+      debugModeBtn.style.border = '2px solid #fff';
+    } else {
+      document.documentElement.style.setProperty('--debug-color', '#000');
+      localStorage.setItem('--debug-color', '#000');
+      debugModeBtn.style.border = '2px solid transparent';
+    }
+  });
+}
 
 /* LOAD SETTINGS */
 (() => {
@@ -55,10 +57,12 @@ debugModeBtn.addEventListener('click', function () {
     localStorage.getItem('--bidi-font') || 'BidiStylishHi_res-Regular';
   document.documentElement.style.setProperty('--bidi-font', bidiFont);
 
-  const debugColor = localStorage.getItem('--debug-color') || '#000';
-  document.documentElement.style.setProperty('--debug-color', debugColor);
-  if (debugColor == '#a200ff') {
-    debugModeBtn.style.border = '2px solid #fff';
+  if (debugModeBtn) {
+    const debugColor = localStorage.getItem('--debug-color') || '#000';
+    document.documentElement.style.setProperty('--debug-color', debugColor);
+    if (debugColor == '#a200ff') {
+      debugModeBtn.style.border = '2px solid #fff';
+    }
   }
 })();
 
