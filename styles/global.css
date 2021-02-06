@@ -267,6 +267,10 @@ table td {
   font-family: var(--bidi-font);
 }
 
+#bidi-text-font span {
+  font-family: var(--bidi-font);
+}
+
 .inputs-area p .wrong {
   color: var(--error);
 }
